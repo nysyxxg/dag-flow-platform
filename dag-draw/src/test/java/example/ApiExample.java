@@ -11,12 +11,12 @@ import java.util.Random;
 /**
  * Created by frank on 2014/11/20.
  */
-public class apiExample {
+public class ApiExample {
 
     private static String tmpPath = "dag-draw/sample";
     public static void main(String[] args)
     {
-        apiExample ex = new apiExample();
+        ApiExample ex = new ApiExample();
         ex.draw();
         ex.draw2();
         ex.draw3();
