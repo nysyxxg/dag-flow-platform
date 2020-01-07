@@ -1,19 +1,13 @@
 package com.fjsh.dag.flow.common;
 
-
 import com.google.common.collect.Maps;
-
 import com.fjsh.dag.flow.model.ItemKey;
-
 import org.apache.commons.collections.MapUtils;
-
-import java.util.Collections;
 import java.util.Map;
-
 import lombok.Getter;
 
 /**
- *
+ *  运行结果状态类
  */
 public class ResultStatus {
 

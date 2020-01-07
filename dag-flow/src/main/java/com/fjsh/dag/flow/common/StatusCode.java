@@ -3,6 +3,7 @@ package com.fjsh.dag.flow.common;
 import lombok.Getter;
 
 /**
+ *
  */
 public enum StatusCode {
     SUCCESS(100),
@@ -14,12 +15,12 @@ public enum StatusCode {
     PARAMETERS_ILLEGAL(330), PARAMETERS_EMPTY(331),
     FALLBACK(350),
     UNKOWN(999);
-    
+
     @Getter
     int code;
-    
-    StatusCode(int code){
-        this.code =code;
+
+    StatusCode(int code) {
+        this.code = code;
     }
-    
+
 }

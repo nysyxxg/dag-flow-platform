@@ -39,7 +39,6 @@ public class Consts {
         public static final String EXT_EL_VALUETYPE = "valueType";
         public static final String EXT_EL_EXPRESSION = "expression";
 
-
     }
 
 
