@@ -17,6 +17,7 @@ public class TestGraph {
         Graph g = new Graph("g1", GraphType.DIGRAPH);
         g.addEdge(new Edge(new Node("A"),new Node("B")));
         String dotString = g.genDotString();
+        System.out.println(dotString);
         Assert.assertTrue(dotString.contains("->"));
     }
 
@@ -25,6 +26,7 @@ public class TestGraph {
         Graph g = new Graph("g1", GraphType.GRPAH);
         g.addEdge(new Edge(new Node("A"),new Node("B")));
         String dotString = g.genDotString();
+        System.out.println(dotString);
         Assert.assertTrue(dotString.contains("--"));
     }
 }

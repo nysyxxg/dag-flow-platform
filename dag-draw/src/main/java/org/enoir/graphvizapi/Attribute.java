@@ -9,27 +9,29 @@ public class Attribute {
     private String attrValue;
 
     /**
-     * @param name Attribute name. Like 'label' 'color'...etc.
+     * @param name  Attribute name. Like 'label' 'color'...etc.
      * @param value Attrubute value. Like 'blue'...
      */
-    public Attribute(String name, String value){
+    public Attribute(String name, String value) {
         this.attrName = name;
         this.attrValue = value;
     }
 
     /**
      * Attribute name getter.
+     *
      * @return attribute name.
      */
-    public String getAttrName(){
+    public String getAttrName() {
         return this.attrName;
     }
 
     /**
      * Attribute value getter.
+     *
      * @return attribute value.
      */
-    public String getAttrValue(){
+    public String getAttrValue() {
         return this.attrValue;
     }
 

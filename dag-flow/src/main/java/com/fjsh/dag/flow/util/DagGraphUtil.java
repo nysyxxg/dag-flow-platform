@@ -33,10 +33,13 @@ public class DagGraphUtil {
         HashMap<String, Node> nodeHashMap = Maps.newHashMap();
         HashMap<String, Edge> edgeHashMap = Maps.newHashMap();
         DagGraphUtil.createDag(flow, graph,nodeHashMap, edgeHashMap);
-        String type = "png";
 
-        File out = new File(tmpPath + "/"+System.currentTimeMillis()+"." + type);
-        writeGraphToFile(gv.getGraphByteArray(graph, type, "100"), out);
+        String dotSource = gv.genDotStringByGraph(graph);
+        System.out.println("................dotSource............." + dotSource);
+        // 将DAG图写入到图片中
+//        String type = "png";
+//        File out = new File(tmpPath + "/"+System.currentTimeMillis()+"." + type);
+//        writeGraphToFile(gv.getGraphByteArray(graph, type, "100"), out);
     }
 
     private static void createDag(JobFlow flow, Graph daggraph, HashMap<String, Node> nodeHashMap, HashMap<String, Edge> edgeHashMap) {

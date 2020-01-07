@@ -10,11 +10,12 @@ public class Edge extends BaseGraphObject {
 
     /**
      * Edge constructor with edge id.
-     * @param id Edge Id.
+     *
+     * @param id       Edge Id.
      * @param fromNode From Node.
-     * @param toNode To Node.
+     * @param toNode   To Node.
      */
-    public Edge(String id,Node fromNode,Node toNode){
+    public Edge(String id, Node fromNode, Node toNode) {
         super(id);
         this.fromNode = fromNode;
         this.toNode = toNode;
@@ -22,10 +23,11 @@ public class Edge extends BaseGraphObject {
 
     /**
      * Edge constructor without edge id. Default id is blank.
+     *
      * @param fromNode
      * @param toNode
      */
-    public Edge(Node fromNode,Node toNode){
+    public Edge(Node fromNode, Node toNode) {
         super("");
         this.fromNode = fromNode;
         this.toNode = toNode;
@@ -33,24 +35,26 @@ public class Edge extends BaseGraphObject {
 
     /**
      * From node getter.
+     *
      * @return from Node
      */
-    public Node getFromNode(){
+    public Node getFromNode() {
         return this.fromNode;
     }
 
     /**
      * To node getter.
+     *
      * @return to node.
      */
-    public Node getToNode(){
+    public Node getToNode() {
         return this.toNode;
     }
 
     @Override
     public String genDotString() {
         StringBuilder dotString = new StringBuilder();
-        dotString.append("["+this.genAttributeDotString()+"]");
+        dotString.append("[" + this.genAttributeDotString() + "]");
         return dotString.toString();
     }
 }

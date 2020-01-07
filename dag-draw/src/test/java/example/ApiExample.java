@@ -14,15 +14,15 @@ import java.util.Random;
 public class ApiExample {
 
     private static String tmpPath = "dag-draw/sample";
-    public static void main(String[] args)
-    {
+
+    public static void main(String[] args) {
         ApiExample ex = new ApiExample();
         ex.draw();
         ex.draw2();
         ex.draw3();
     }
-    private void draw()
-    {
+
+    private void draw() {
         Graphviz gv = new Graphviz();
         Graph graph = new Graph("g1", GraphType.DIGRAPH);
         graph.addAttribute(new Attribute("rankdir", "LR"));
@@ -36,62 +36,62 @@ public class ApiExample {
         graph.addNode(n3);
         graph.addEdge(new Edge("", n1, n2));
         graph.addEdge(new Edge("", n2, n3));
-        graph.addEdge(new Edge("",n3,n1));
+        graph.addEdge(new Edge("", n3, n1));
 
 
         String type = "png";
 
-        File out = new File(tmpPath+"/outEX1."+ type);
-        this.writeGraphToFile( gv.getGraphByteArray(graph, type, "100"), out );
+        File out = new File(tmpPath + "/outEX1." + type);
+        this.writeGraphToFile(gv.getGraphByteArray(graph, type, "100"), out);
     }
 
-    public void draw2(){
+    public void draw2() {
         int nodeNumber = 10;
         int edageNumber = 20;
         Graphviz gv = new Graphviz();
         Graph graph = new Graph("g1", GraphType.DIGRAPH);
         Graph subgraph = new Graph("subg1", GraphType.DIGRAPH);
         List<Node> nodeList = new ArrayList<Node>();
-        for(int i=0;i<nodeNumber;i++){
-            Node n = new Node("N"+Integer.toString(i));
+        for (int i = 0; i < nodeNumber; i++) {
+            Node n = new Node("N" + Integer.toString(i));
             nodeList.add(n);
             graph.addNode(n);
         }
-        for(int e=0;e<edageNumber;e++){
+        for (int e = 0; e < edageNumber; e++) {
             Random ran = new Random();
             int f = ran.nextInt(nodeNumber);
             int t = ran.nextInt(nodeNumber);
-            Edge edge = new Edge("",nodeList.get(f),nodeList.get(t));
+            Edge edge = new Edge("", nodeList.get(f), nodeList.get(t));
             graph.addEdge(edge);
         }
-         for(int i=0;i<nodeNumber/2;i++){
-            Node n = new Node("sN"+Integer.toString(i));
-             n.addAttribute(new Attribute("style", "filled"));
+        for (int i = 0; i < nodeNumber / 2; i++) {
+            Node n = new Node("sN" + Integer.toString(i));
+            n.addAttribute(new Attribute("style", "filled"));
             nodeList.add(n);
             subgraph.addNode(n);
         }
-        for(int e=0;e<edageNumber;e++){
+        for (int e = 0; e < edageNumber; e++) {
             Random ran = new Random();
             int f = ran.nextInt(nodeList.size());
             int t = ran.nextInt(nodeList.size());
-            Edge edge = new Edge("",nodeList.get(f),nodeList.get(t));
+            Edge edge = new Edge("", nodeList.get(f), nodeList.get(t));
             subgraph.addEdge(edge);
         }
         graph.addSubgraph(subgraph);
         String type = "png";
-        File out = new File(tmpPath+"/outEX2."+ type);
-        this.writeGraphToFile( gv.getGraphByteArray(graph, type, "100"), out );
+        File out = new File(tmpPath + "/outEX2." + type);
+        this.writeGraphToFile(gv.getGraphByteArray(graph, type, "100"), out);
 
     }
 
-    public void draw3(){
+    public void draw3() {
         Graphviz gv = new Graphviz();
         Graph graph = new Graph("g1", GraphType.DIGRAPH);
-        Graph cluster_0 = new Graph("cluster_0",GraphType.DIGRAPH);
-        cluster_0.addAttribute(new Attribute("style","filled"));
-        cluster_0.addAttribute(new Attribute("color","lightgrey"));
-        cluster_0.addAttribute(new Attribute("label","\"process #1\""));
-        Attribute cn0Attr = new Attribute("style","filled");
+        Graph cluster_0 = new Graph("cluster_0", GraphType.DIGRAPH);
+        cluster_0.addAttribute(new Attribute("style", "filled"));
+        cluster_0.addAttribute(new Attribute("color", "lightgrey"));
+        cluster_0.addAttribute(new Attribute("label", "\"process #1\""));
+        Attribute cn0Attr = new Attribute("style", "filled");
         Node a0 = new Node("a0");
         Node a1 = new Node("a1");
         Node a2 = new Node("a2");
@@ -100,12 +100,12 @@ public class ApiExample {
         cluster_0.addNode(a1);
         cluster_0.addNode(a2);
         cluster_0.addNode(a3);
-        cluster_0.addEdge(new Edge("",a0,a1));
-        cluster_0.addEdge(new Edge("",a1,a2));
-        cluster_0.addEdge(new Edge("",a2,a3));
-        Graph cluster_1 = new Graph("cluster_1",GraphType.DIGRAPH);
-        cluster_1.addAttribute(new Attribute("color","blue"));
-        cluster_1.addAttribute(new Attribute("label","\"process #1\""));
+        cluster_0.addEdge(new Edge("", a0, a1));
+        cluster_0.addEdge(new Edge("", a1, a2));
+        cluster_0.addEdge(new Edge("", a2, a3));
+        Graph cluster_1 = new Graph("cluster_1", GraphType.DIGRAPH);
+        cluster_1.addAttribute(new Attribute("color", "blue"));
+        cluster_1.addAttribute(new Attribute("label", "\"process #1\""));
         Node b0 = new Node("b0");
         Node b1 = new Node("b1");
         Node b2 = new Node("b2");
@@ -114,36 +114,37 @@ public class ApiExample {
         cluster_1.addNode(b1);
         cluster_1.addNode(b2);
         cluster_1.addNode(b3);
-        cluster_1.addEdge(new Edge(b0,b1));
-        cluster_1.addEdge(new Edge(b1,b2));
-        cluster_1.addEdge(new Edge(b2,b3));
+        cluster_1.addEdge(new Edge(b0, b1));
+        cluster_1.addEdge(new Edge(b1, b2));
+        cluster_1.addEdge(new Edge(b2, b3));
         Node startNode = new Node("Start");
-        startNode.addAttribute(new Attribute("shape","Mdiamond"));
+        startNode.addAttribute(new Attribute("shape", "Mdiamond"));
         Node endNode = new Node("End");
-        endNode.addAttribute(new Attribute("shape","Msquare"));
+        endNode.addAttribute(new Attribute("shape", "Msquare"));
         graph.addNode(startNode);
         graph.addNode(endNode);
         graph.addSubgraph(cluster_0);
         graph.addSubgraph(cluster_1);
         graph.addEdge(new Edge(startNode, a0));
         graph.addEdge(new Edge(startNode, b0));
-        graph.addEdge(new Edge(a1,b3));
-        graph.addEdge(new Edge(b2,a3));
-        graph.addEdge(new Edge(a3,a0));
+        graph.addEdge(new Edge(a1, b3));
+        graph.addEdge(new Edge(b2, a3));
+        graph.addEdge(new Edge(a3, a0));
         graph.addEdge(new Edge(a3, endNode));
         graph.addEdge(new Edge(b3, endNode));
         String type = "png";
-        File out = new File(tmpPath+"/outEX3."+ type);
-        this.writeGraphToFile( gv.getGraphByteArray(graph, type, "100"), out );
+        File out = new File(tmpPath + "/outEX3." + type);
+        this.writeGraphToFile(gv.getGraphByteArray(graph, type, "100"), out);
     }
 
-    public int writeGraphToFile(byte[] img, File to)
-    {
+    public int writeGraphToFile(byte[] img, File to) {
         try {
             FileOutputStream fos = new FileOutputStream(to);
             fos.write(img);
             fos.close();
-        } catch (java.io.IOException ioe) { return -1; }
+        } catch (java.io.IOException ioe) {
+            return -1;
+        }
         return 1;
     }
 }

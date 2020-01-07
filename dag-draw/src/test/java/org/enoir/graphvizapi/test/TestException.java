@@ -34,6 +34,7 @@ public class TestException {
         String type = "png";
         try {
             byte[] bytearray = gz.getGraphByteArray(graph, type, "100");
+
             Assert.assertTrue(false);
         }catch (GraphException ge){
             Assert.assertTrue(true);

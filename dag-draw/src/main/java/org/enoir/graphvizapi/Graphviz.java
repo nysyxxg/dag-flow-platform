@@ -74,7 +74,7 @@ public class Graphviz {
         return img_stream;
     }
 
-    private String genDotStringByGraph(Graph graph){
+    public String genDotStringByGraph(Graph graph){
         StringBuilder dotString = new StringBuilder();
         if(graph.getGraphType() == GraphType.DIGRAPH){
             dotString.append("digraph ");
