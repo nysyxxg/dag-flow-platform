@@ -95,7 +95,7 @@ public class JobFlow {
                         sb.append(path.get(i)).append(" <- ");
                     }
                     sb.append(depend);
-                    throw new Exception(sb.toString());
+                    throw new Exception("存在循环依赖：" + sb.toString());
                 }
             } else {
                 dfs(depend, graph, path, status);
